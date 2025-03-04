@@ -17,6 +17,7 @@ public class HelloController {
     @GetMapping("hello-mvc")
     public String helloMvc(@RequestParam("name") String name, Model model) { //require == false로 하면 default 값이 true 라 ?name="VALUE" 로 값 넘겨줌
         model.addAttribute("name", name);
+        
         return "hello-template";
     }
 }
