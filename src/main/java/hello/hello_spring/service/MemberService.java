@@ -26,15 +26,6 @@ public class MemberService {
      * 회원 가입
      */
     public Long join(Member member) {
-//        //같은 이름이 있는 중복 회원 X
-//        Optional<Member> result = memberRepository.findByName(member.getName());
-//        //값이 있으면
-//        result.ifPresent(m -> {
-//            throw new IllegalStateException("이미 존재하는 회원입니다.");
-//        });
-        
-        //위의 두 개를 합친 문법
-        //같은 이름이 있는 중복 회원 X
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();
@@ -57,6 +48,4 @@ public class MemberService {
     public Optional<Member> findOne(Long memberId) {
         return memberRepository.findById(memberId);
     }
-
-
 }
